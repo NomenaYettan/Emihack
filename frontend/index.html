@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistant Transport Urbain</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>🚦 Assistant Transport Urbain</h1>
+      <p>Trouvez le meilleur itinéraire et la meilleure heure de départ</p>
+    </header>
+
+    <main class="app-main">
+      <section class="form-panel">
+        <form id="route-form">
+          <label>Point de départ</label>
+          <div class="location-row">
+            <input type="text" id="origin" placeholder="lat,lng" readonly />
+            <button type="button" id="locate-btn" title="Utiliser ma position actuelle">📍 Me localiser</button>
+          </div>
+          <p class="hint">Cliquez sur "Me localiser", ou cliquez directement sur la carte pour fixer un point de départ manuel.</p>
+
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" placeholder="lat,lng" readonly />
+          <p class="hint">Cliquez sur la carte (clic droit) pour choisir la destination.</p>
+
+          <button type="submit">Trouver le meilleur créneau</button>
+        </form>
+
+        <div id="loading" class="hidden">Calcul en cours...</div>
+        <div id="error" class="hidden"></div>
+
+        <div id="results" class="hidden">
+          <h2>Meilleur créneau</h2>
+          <div id="best-result" class="result-card best"></div>
+
+          <h3>Toutes les options</h3>
+          <div id="all-results"></div>
+        </div>
+      </section>
+
+      <section class="map-panel">
+        <div id="map"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
